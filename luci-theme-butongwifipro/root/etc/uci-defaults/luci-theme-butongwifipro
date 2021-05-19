@@ -1,0 +1,7 @@
+#!/bin/sh
+uci batch <<-EOF
+	set luci.themes.Butongwifipro=/luci-static/butongwifipro
+	set luci.main.mediaurlbase=/luci-static/butongwifipro
+	commit luci
+EOF
+exit 0
