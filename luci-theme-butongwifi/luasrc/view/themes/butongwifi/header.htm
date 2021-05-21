@@ -2,26 +2,6 @@
 
 	luci-theme-butongwifi
 	Copyright 2017 Tracemouse <tracemouse@wcan.in>
-	
-	Smart Menu:
-	https://www.smartmenus.org/
-	
-	Font Awesome:
-	http://fontawesome.io/
-
-
-	luci-theme-material
-	Copyright 2015 Lutty Yang <lutty@wcan.in>
-
-	luci-theme-bootstrap:
-	Copyright 2008 Steven Barth <steven@midlink.org>
-	Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>
-	Copyright 2012 David Menting <david@nut-bolt.nl>
-
-	MUI:
-	https://github.com/muicss/mui
-
-	Licensed to the public under the Apache License 2.0
 -%>
 
 <%
@@ -66,7 +46,7 @@
 
 	<link href='<%=media%>/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css' />
 
-    <link rel="stylesheet" href="<%=media%>/css/style.css?v=git-17.016.25656-a85807d">
+    <link rel="stylesheet" href="<%=media%>/css/style.css">
     <link rel="shortcut icon" href="<%=media%>/favicon.ico">
     <% if node and node.css then %>
         <link rel="stylesheet" href="<%=resource%>/<%=node.css%>">
@@ -76,6 +56,9 @@
             <%-= css %>
         </style>
     <% end -%>
+	<script src=”https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+	<script src="<%=url('admin/translations', luci.i18n.context.lang)%>?v=2.2.4"></script>
+	<script src="<%=resource%>/cbi.js?v=2.2.4"></script>
 	<script src="<%=resource%>/luci.js?v=2.2.4"></script>
 	<script src="<%=media%>/js/jquery.min.js?v=2.2.4"></script>
 	<script type="text/javascript">//<![CDATA[
@@ -115,7 +98,7 @@
 				]));
 			}
 			if (l == 1) {
-				var container = document.querySelector('#mainmenu');
+				var container = document.querySelector('#main-menu');
 				container.appendChild(ul);
 				container.style.display = '';
 			}
@@ -195,7 +178,6 @@
   </label>
 
   <p class="nav-brand"><a href="/cgi-bin/luci/"><%=striptags( (boardinfo.hostname or "?") ) %></a></p>
-  <ul class="sm sm-blue" id="topmenu" style="display:none"></ul>
   <ul id="main-menu" class="sm sm-blue"></ul>
   <div id="indicators" class="pull-right"></div>
 </nav>
